@@ -9,22 +9,6 @@ public class FilePrioriteTas<E> implements FilePriorite<E> {
   private int size = 0;
   private int defaultSize = 10;
 
-  public static void main(String[] args) {
-    FilePrioriteTas<Integer> nTas = new FilePrioriteTas<>();
-    System.out.println(nTas);
-    for (int i = 0; i < 8; i++) {
-      int rdm = (int) (Math.random() * 20);
-      nTas.offer(rdm);
-      System.out.println(rdm);
-      System.out.println(nTas);
-    }
-    System.out.println(nTas.peek());
-    System.out.println(nTas.poll());
-    System.out.println(nTas.poll());
-    System.out.println(nTas);
-    nTas.printTas();
-  }
-
   /*
    * Constructs an empty priority queue.
    */

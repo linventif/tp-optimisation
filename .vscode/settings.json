@@ -1,8 +1,8 @@
 {
-  "java.project.sourcePaths": ["."],
-  "java.project.referencedLibraries": [
-    "/home/infoetu/gregoire.launaybecue.etu/lib/hamcrest-3.0.jar",
-    "/home/infoetu/gregoire.launaybecue.etu/lib/junit-4.13.2.jar"
-  ],
-  "java.debug.settings.onBuildFailureProceed": true
+	"java.project.sourcePaths": ["."],
+	"java.project.referencedLibraries": [
+		"~/tp-optimisation/lib/hamcrest-3.0.jar",
+		"~/tp-optimisation/lib/junit-4.13.2.jar"
+	],
+	"java.debug.settings.onBuildFailureProceed": true
 }

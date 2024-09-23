@@ -11,11 +11,18 @@ public class FilePrioriteTas<E> implements FilePriorite<E> {
 
   public static void main(String[] args) {
     FilePrioriteTas<Integer> nTas = new FilePrioriteTas<>();
-    System.out.println(nTas.size());
-    System.out.println(nTas.isEmpty());
     System.out.println(nTas);
-    nTas.offer(14);
+    for (int i = 0; i < 8; i++) {
+      int rdm = (int) (Math.random() * 20);
+      nTas.offer(rdm);
+      System.out.println(rdm);
+      System.out.println(nTas);
+    }
+    System.out.println(nTas.peek());
+    System.out.println(nTas.poll());
+    System.out.println(nTas.poll());
     System.out.println(nTas);
+    nTas.printTas();
   }
 
   /*
@@ -106,11 +113,11 @@ public class FilePrioriteTas<E> implements FilePriorite<E> {
       int right = 2 * position + 2;
       int max = position;
 
-      if (left < tas.length && compare(tas[left], tas[max]) > 0) {
+      if (left < tas.length && tas[left] != null && compare(tas[left], tas[max]) > 0) {
         max = left;
       }
 
-      if (right < tas.length && compare(tas[right], tas[max]) > 0) {
+      if (right < tas.length && tas[right] != null && compare(tas[right], tas[max]) > 0) {
         max = right;
       }
 
@@ -121,6 +128,21 @@ public class FilePrioriteTas<E> implements FilePriorite<E> {
         updateTas(max, up);
       }
     }
+  }
+
+  public void printTas() {
+    // print the tree with every level on a new line
+    int level = 0;
+    int levelSize = 1;
+    
+    for (int i = 0; i < tas.length; i++) {
+      if (i == levelSize) {
+        System.out.println();
+        levelSize += Math.pow(2, ++level);
+      }
+      System.out.print(tas[i] + " ");
+    }
+    System.out.println();
   }
 
   /*
@@ -135,14 +157,8 @@ public class FilePrioriteTas<E> implements FilePriorite<E> {
     }
 
     // insert the element at the first available position
-    for (int i = 0; i < tas.length; i++) {
-      if (tas[i] == null) {
-        tas[i] = e;
-        // update the queue
-        updateTas(i, true);
-        break;
-      }
-    }
+    tas[this.size()] = e;
+    updateTas(this.size(), true);
 
     size++;
     return true;
@@ -166,8 +182,8 @@ public class FilePrioriteTas<E> implements FilePriorite<E> {
     }
 
     E head = tas[0];
-    tas[0] = tas[tas.length - 1];
-    tas[tas.length - 1] = null;
+    tas[0] = tas[this.size() - 1];
+    tas[this.size() - 1] = null;
     updateTas(0, false);
 
     size--;

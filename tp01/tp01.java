@@ -1,3 +1,5 @@
+package tp01;
+
 public class tp01 {
     // Autour du tri par insertion
     //

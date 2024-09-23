@@ -1,4 +1,4 @@
-public class script {
+public class tp01 {
     // Autour du tri par insertion
     //
     //Implanter une méthode tri_insertion pour trier dans l’ordre croissant un tableau d’entiers en suivant l’algorithme
